@@ -79,3 +79,13 @@ main .features {
 .table tbody tr:nth-child(even){
 	background: #F7F7F7;
 }
+
+.pagin  {
+   color: #fff;
+   width: 80%;
+   text-align: center;
+    margin-to: 20px;
+    transition: transform .6s ease;
+
+
+}
