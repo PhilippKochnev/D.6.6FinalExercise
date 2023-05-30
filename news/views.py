@@ -18,7 +18,7 @@ class CategoryList(ListView):
 
 class PostList(ListView):
     model = Post
-    ordering = 'time_in'
+    ordering = 'header'
     template_name = 'flatpages/news/news.html'
     context_object_name = 'news'
     paginate_by = 2

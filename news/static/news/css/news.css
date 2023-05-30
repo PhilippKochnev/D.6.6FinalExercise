@@ -55,14 +55,21 @@ main .features {
  main .features h1 {font-size: 50px;}
  main .features p {max-width: 400px; margin: 20px auto;}
 
+.search {
+
+
+}
+
 .table{
 	border: 0px solid #eee;
 	table-layout: fixed;
 	width: 75%;
 	margin-bottom: 70px;
+	margin-top: 90px;
 
 }
 .table th {
+
 	font-weight: bold;
 	padding: 5px;
 	background: #efefef;
@@ -84,8 +91,8 @@ main .features {
    color: #fff;
    width: 80%;
    text-align: center;
-    margin-to: 20px;
-    transition: transform .6s ease;
+   margin-to: 20px;
+   transition: transform .6s ease;
 
 
 }
