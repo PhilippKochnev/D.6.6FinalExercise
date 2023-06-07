@@ -23,15 +23,16 @@ ca4 = Category.objects.create(name='Погода')
 po1 = Post.objects.create(author=au1, type=news_, header='Погода в Красноярске', content='Тепло +25 солнечно')
 po2 = Post.objects.create(author=au2, type=article, header='«Карнаухов зарядил кричалку «Короли седьмой игры»',content='Нападающий московского ЦСКА Михаил Григоренко рассказал о характерной особенности армейцев в минувшем сезоне Кубка Гагарина')
 po3 = Post.objects.create(author=au2, type=article, header='Политическая экономика', content='Последнее время политическая экономика не экономична')
+po5 = Post.objects.create(author=au1, type=news_, header='Погода в Сочи', content='+24 Дождь вете 6 м/с')
 
 5) Присвоить им категории (как минимум в одной статье/новости должно быть не меньше 2 категорий).
 
 
-post = Post.objects.get(pk=1)
+post = Post.objects.get(pk=6)
 category = Category.objects.get(pk=4)
 post.category.add(category)
 
-post = Post.objects.get(pk=2
+post = Post.objects.get(pk=2)
 category = Category.objects.get(pk=1)
 post.category.add(category)
 
@@ -101,3 +102,14 @@ for comment in comments:
 #Cпасибо! :)
 
 a href="{% url 'postid' %}"><i class="bi-alarm"></i><li>Новость</li></a>
+
+from news.forms import PostForm
+au1 = Author.objects.get(pk=4)
+f = PostForm({'type': 'NW', 'category': 4, 'author': [4], 'header': 'Погода в Якутске', 'content': '-2, снег  с дождем'})
+проверка
+form.is_valid()
+ошибки если есть:
+f.errors
+Посмтреть форму:
+f.cleaned_data
+d = PostForm({'type': 'NW', 'category': [4], 'author': 4, 'header': 'Погода в Норильске', 'content': 'Погода в Норильске'})
