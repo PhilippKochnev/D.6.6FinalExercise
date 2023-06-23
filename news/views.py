@@ -6,6 +6,10 @@ from .models import Post
 from .models import Category
 from .filters import PostFilter
 from .forms import PostForm
+from django.utils.decorators import method_decorator
+from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.cache import cache
 
 
@@ -74,6 +78,7 @@ class PostDetail(DetailView):
 
 
 class PostCreate(CreateView):
+    permission_required = ('news.add_post',)
     form_class = PostForm
     model = Post
     template_name = 'flatpages/news/post_edit.html'
@@ -90,10 +95,19 @@ class PostCreate(CreateView):
 class PostUpdate(UpdateView):
     form_class = PostForm
     model = Post
-    template_name = 'flatpages/news/post_edit.html'
+    template_name = '/post_edit.html'
 
 
 class PostDelete(DeleteView):
     model = Post
     template_name = 'flatpages/news/post_delete.html'
     success_url = reverse_lazy('news')
+
+
+@login_required
+class ProtectedView(LoginRequiredMixin, TemplateView):
+    template_name = 'prodected_page.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)

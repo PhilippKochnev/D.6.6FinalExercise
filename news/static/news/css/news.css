@@ -93,6 +93,8 @@ main .features {
    text-align: center;
    margin-to: 20px;
    transition: transform .6s ease;
+}
 
-
+.reg {
+   color: #fff;
 }
